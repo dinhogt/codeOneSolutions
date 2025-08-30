@@ -1,21 +1,21 @@
 import Navbar from './components/Navbar.jsx'
 import Footer from './components/Footer.jsx'
-import Hero from './sections/Hero.jsx'
+import Begin from './sections/Begin.jsx'
 import Services from './sections/Services.jsx'
 import About from './sections/About.jsx'
-import Highlights from './sections/Highlights.jsx'
-import Testimonial from './sections/Testimonial.jsx'
+import Projects from './sections/Projects.jsx'
+import News from './sections/News.jsx'
 import Contact from './sections/Contact.jsx'
 
 export default function App() {
   return (
-    <div className="min-h-screen flex flex-col bg-white">
+    <div className="min-h-screen flex flex-col bg-brand-lighter text-brand">
       <Navbar />
       <main className="flex-1">
-        <Hero />
-        <Highlights />
+        <Begin />
         <Services />
-        <Testimonial />
+        <News />
+        <Projects />
         <About />
         <Contact />
       </main>
