@@ -10,9 +10,9 @@ export default function Navbar() {
         </a>
       <div className="hidden md:flex items-center gap-6">
           <nav className="flex gap-6">
-            <a href="#services" className="hover:text-accent">Serviços</a>
-            <a href="#news" className="hover:text-accent">Novidades</a>
+            <a href="#services" className="hover:text-accent">Serviços</a>          
             <a href="#projects" className="hover:text-accent">Projetos</a>
+              <a href="#news" className="hover:text-accent">Novidades</a>
             <a href="#about" className="hover:text-accent">Sobre</a>
           </nav>
           <a href="#contact" className="btn-primary text-sm">Fale Conosco</a>

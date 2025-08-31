@@ -13,9 +13,9 @@ export default function App() {
       <Navbar />
       <main className="flex-1">
         <Begin />
-        <Services />
-        <News />
+        <Services />   
         <Projects />
+        <News />
         <About />
         <Contact />
       </main>

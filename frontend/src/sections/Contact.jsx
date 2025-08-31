@@ -26,9 +26,9 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="py-20">
+    <section id="contact" className="py-10">
       <div className="container-xl">
-        <h2 className="text-3xl font-bold text-center">Fale com a gente</h2>
+        <h2 className="text-3xl font-bold text-center text-accent">Fale com a gente</h2>
         <p className="text-center mt-2">Conte um pouco sobre seu projeto.</p>
         <div className="max-w-3xl mx-auto mt-10">
         <form onSubmit={handleSubmit} className="card p-8 mt-8 grid md:grid-cols-2 gap-6">
