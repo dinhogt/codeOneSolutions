@@ -2,13 +2,26 @@ services:
   backend:
     build: ./backend
     ports:
-      - "3000:3000"
+      - "3000:3000"       # Backend rodando na porta 3000 do host
     env_file:
       - ./backend/.env
     restart: always
 
   frontend:
     build: ./frontend
+    # Não expõe porta 80 diretamente, será acessado via Nginx
+    restart: always
+
+  nginx:
+    image: nginx:alpine
     ports:
-      - "80:80"
+      - "80:80"           # HTTP
+      - "443:443"         # HTTPS
+    volumes:
+      - ./nginx/conf.d:/etc/nginx/conf.d   # Seu arquivo de configuração ajustado
+      - ./frontend/build:/usr/share/nginx/html  # Build do React
+      - /etc/letsencrypt:/etc/letsencrypt       # Certificados SSL
+    depends_on:
+      - frontend
+      - backend
     restart: always
