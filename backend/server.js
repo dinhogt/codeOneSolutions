@@ -9,7 +9,11 @@ import newsRoutes from './routes/newsRoutes.js';
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.use(cors({ origin: (process.env.CORS_ORIGIN ? process.env.CORS_ORIGIN.split(',') : ['*']) }));
+app.use(cors({
+  origin: (process.env.CORS_ORIGIN ? process.env.CORS_ORIGIN.split(',') : ['*']),
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  credentials: true
+}));
 app.use(express.json());
 
 // Healthcheck

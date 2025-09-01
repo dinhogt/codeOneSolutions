@@ -1,4 +1,8 @@
+import dotenv from 'dotenv';
+dotenv.config();
+
 import nodemailer from 'nodemailer';
+
 
 export const sendContactEmail = async ({ name, email, phone, message }) => {
   const transporter = nodemailer.createTransport({
@@ -20,7 +24,7 @@ export const sendContactEmail = async ({ name, email, phone, message }) => {
   `;
 
   const info = await transporter.sendMail({
-    from: `${name} <${email}>`,
+    from: process.env.MAIL_FROM,
     to: process.env.MAIL_TO || process.env.SMTP_USER,
     subject: `Contato do site - ${name}`,
     replyTo: email,
