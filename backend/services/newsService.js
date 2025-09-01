@@ -22,7 +22,9 @@ export async function getDailyNews() {
     return cachedNews;
   }
 
-  const endpoint = `https://newsdata.io/api/1/latest?apikey=${process.env.NEWSDATA_API_KEY}&category=technology&image=1&removeduplicate=1&size=5&language=pt&country=br`;
+  //const endpoint = `https://newsdata.io/api/1/latest?apikey=${process.env.NEWSDATA_API_KEY}&category=technology&excludecategory=top&image=1&removeduplicate=1&size=5&language=pt&country=br`;
+  //const endpoint = `https://api.mediastack.com/v1/sources?access_key=${process.env.MEDIASTACK_API_KEY}&category=technology&languages=pt`;
+  const endpoint = `https://api.apitube.io/v1/news/everything?per_page=10&api_key=${process.env.APITUBE_API_KEY}&language.code=pt&category.id=medtop:20000225`;
 
   try {
     const res = await axios.get(endpoint);
