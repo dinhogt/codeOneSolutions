@@ -1,26 +1,26 @@
-// [
-//   {
-//     "id": 1,
-//     "title": "Site Institucional Code One Solutions",
-//     "description": "Desenvolvimento do site institucional com React, Node.js e Tailwind.",
-//     "image": "https://placehold.co/600x400/5e17eb/FFFFFF/png?text=Code+One+Solutions"
-//   },
-//   {
-//     "id": 2,
-//     "title": "Dashboard de Notícias",
-//     "description": "Dashboard dinâmico para exibição de notícias de tecnologia integradas via API.",
-//     "image": "https://placehold.co/600x400/2f455c/FFFFFF/png?text=Dashboard"
-//   },
-//     {
-//     "id": 3,
-//     "title": "Site Institucional Code One Solutions",
-//     "description": "Desenvolvimento do site institucional com React, Node.js e Tailwind.",
-//     "image": "https://placehold.co/600x400/5e17eb/FFFFFF/png?text=Code+One+Solutions"
-//   },
-//   {
-//     "id": 4,
-//     "title": "Dashboard de Notícias",
-//     "description": "Dashboard dinâmico para exibição de notícias de tecnologia integradas via API.",
-//     "image": "https://placehold.co/600x400/2f455c/FFFFFF/png?text=Dashboard"
-//   }
-// ]
+[
+  {
+    "id": 1,
+    "title": "Site Institucional Code One Solutions",
+    "description": "Desenvolvimento do site institucional com React, Node.js e Tailwind.",
+    "image": "https://placehold.co/600x400/5e17eb/FFFFFF/png?text=Code+One+Solutions"
+  },
+  {
+    "id": 2,
+    "title": "Dashboard de Notícias",
+    "description": "Dashboard dinâmico para exibição de notícias de tecnologia integradas via API.",
+    "image": "https://placehold.co/600x400/2f455c/FFFFFF/png?text=Dashboard"
+  },
+    {
+    "id": 3,
+    "title": "Site Institucional Code One Solutions",
+    "description": "Desenvolvimento do site institucional com React, Node.js e Tailwind.",
+    "image": "https://placehold.co/600x400/5e17eb/FFFFFF/png?text=Code+One+Solutions"
+  },
+  {
+    "id": 4,
+    "title": "Dashboard de Notícias",
+    "description": "Dashboard dinâmico para exibição de notícias de tecnologia integradas via API.",
+    "image": "https://placehold.co/600x400/2f455c/FFFFFF/png?text=Dashboard"
+  }
+]
