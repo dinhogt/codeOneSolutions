@@ -1,0 +1,101 @@
+[
+  {
+    "id": 1,
+    "title": "Plataforma de Agendamento Inteligente",
+    "description": "Facilite o gerenciamento de consultas médicas com um sistema moderno de agendamento online.",
+    "details": "Uma plataforma permite que clínicas e consultórios organizem atendimentos de forma simples e eficiente. Os pacientes podem marcar consultas online, receber lembretes automáticos via e-mail ou WhatsApp e integrar os compromissos diretamente ao Google Calendar. A solução reduz faltas, melhora a experiência do paciente e otimiza a gestão administrativa.",
+    "image": "../assets/designs/schedule_1.png",
+    "images": [
+      "../assets/designs/schedule_2.png",
+      "../assets/designs/schedule_3.png"
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Portal de Reset de Senhas",
+    "description": "Segurança e praticidade para redefinição de senhas corporativas.",
+    "details": "Um portal de reset de senha totalmente integrado ao Active Directory, com suporte a autenticação multifator (MFA) via Google Authenticator. A solução garante maior segurança para empresas e reduz a carga de trabalho do time de TI, permitindo que os próprios usuários recuperem o acesso de forma segura e rápida.",
+    "image": "../assets/designs/reset_1.png",
+    "images": [
+      "../assets/designs/reset_2.png",
+      "../assets/designs/reset_3.png"
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Dashboard de Monitoramento",
+    "description": "Transforme dados financeiros em insights visuais e estratégicos.",
+    "details": "Um painel financeiro interativo que centraliza informações de receitas, despesas e investimentos. Com integração a APIs bancárias e ERPs, o sistema apresenta relatórios e gráficos dinâmicos para apoiar a tomada de decisões. É a solução ideal para pequenas e médias empresas que buscam visibilidade em tempo real sobre sua saúde financeira.",
+    "image": "../assets/designs/dash_fin_1.png",
+    "images": [
+      "../assets/designs/dash_fin_2.png",
+      "../assets/designs/dash_fin_3.png"
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Chatbot de Atendimento",
+    "description": "Atendimento automatizado e inteligente disponível 24/7.",
+    "details": "Um chatbot com inteligência artificial atua como primeiro nível de atendimento para empresas, integrando-se a canais como WhatsApp, sites e redes sociais. Ele responde perguntas frequentes, direciona atendimentos e pode ser treinado para diferentes segmentos de negócio, reduzindo custos operacionais e aumentando a satisfação dos clientes.",
+    "image": "../assets/designs/chat_1.png",
+    "images": [
+      "../assets/designs/chat_2.png",
+      "../assets/designs/chat_3.png"
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Sistema de Gestão de Estoque",
+    "description": "Controle total do estoque com automação e praticidade.",
+    "details": "Uma solução de gestão de estoque permite cadastro de produtos, fornecedores e movimentações em tempo real. O sistema utiliza leitura via QR Code para facilitar entradas e saídas, além de gerar relatórios inteligentes que ajudam na previsão de reposição. Com isso, empresas minimizam perdas e aumentam a eficiência operacional.",
+    "image": "../assets/designs/stock_1.png",
+    "images": [
+      "../assets/designs/stock_2.png",
+      "../assets/designs/stock_3.png"
+    ]
+  },
+  {
+    "id": 6,
+    "title": "Plataforma de Treinamento",
+    "description": "Educação digital acessível e engajante.",
+    "details": "Um aplicativo de ensino online que combina vídeo aulas, quizzes e gamificação. Instrutores podem cadastrar cursos e acompanhar o progresso dos alunos, enquanto os usuários recebem uma experiência interativa com ranking, medalhas e certificados digitais. Ideal para empresas que desejam capacitar colaboradores ou instituições de ensino que buscam inovação.",
+    "image": "../assets/designs/training_1.png",
+    "images": [
+      "../assets/designs/training_2.png",
+      "../assets/designs/training_3.png"
+    ]
+  },
+  {
+    "id": 7,
+    "title": "Portal de Telemedicina",
+    "description": "Atendimento médico online seguro e eficiente.",
+    "details": "Um portal de telemedicina conecta pacientes e médicos em consultas online com vídeo chamadas seguras. Além disso, permite emissão de prescrições digitais e registro de prontuários eletrônicos, tudo com protocolos de segurança de dados. Uma solução pensada para clínicas e hospitais que querem expandir o atendimento digital.",
+    "image": "../assets/designs/medicine_portal_1.png",
+    "images": [
+      "../assets/designs/medicine_portal_2.png",
+      "../assets/designs/medicine_portal_3.png"
+    ]
+  },
+  {
+    "id": 8,
+    "title": "Automação de Relatórios",
+    "description": "Economize tempo com relatórios automáticos e integrados.",
+    "details": "Uma solução que coleta dados de múltiplas fontes (planilhas, sistemas internos, APIs) e gera relatórios em PDF ou Excel automaticamente. O envio pode ser programado para e-mail, facilitando a distribuição de informações para equipes e gestores. Reduza tarefas manuais e aumente a produtividade com automação.",
+    "image": "../assets/designs/dashboard_1.png",
+    "images": [
+      "../assets/designs/dashboard_2.png",
+      "../assets/designs/dashboard_3.png"
+    ]
+  },
+  {
+    "id": 9,
+    "title": "Plataforma de Colaboração",
+    "description": "Organize e potencialize equipes com colaboração em tempo real.",
+    "details": "Uma plataforma de gestão de projetos oferece ferramentas como Kanban, Scrum Board e relatórios de produtividade. Ela permite integração com Slack, Google Drive e outros serviços de colaboração, além de oferecer diferentes níveis de acesso para usuários e gestores. Ideal para empresas que precisam melhorar a organização e entrega de projetos.",
+    "image": "../assets/designs/colab_1.png",
+    "images": [
+      "../assets/designs/colab_2.png",
+      "../assets/designs/colab_3.png"
+    ]
+  }
+]

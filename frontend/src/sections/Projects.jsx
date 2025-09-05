@@ -1,13 +1,27 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 export default function Projects() {
 	const [items, setItems] = useState([]);
 	const [current, setCurrent] = useState(0);
 	const [selectedProject, setSelectedProject] = useState(null);
+	const [isTransitioning, setIsTransitioning] = useState(true);
+
 	const visibleCount = 3;
+	const [showModal, setShowModal] = useState(false);
+	const modalDelay = 75; // tempo em ms para animar modal
 
 	useEffect(() => {
-		fetch("/projects.json")
+		if (selectedProject) {
+			const timer = setTimeout(() => setShowModal(true), modalDelay);
+			return () => clearTimeout(timer);
+		} else {
+			setShowModal(false);
+		}
+	}, [selectedProject]);
+	const trackRef = useRef(null);
+
+	useEffect(() => {
+		fetch("/public/data/projects.json")
 			.then((res) => res.json())
 			.then((data) => setItems(data))
 			.catch(() => setItems([]));
@@ -16,74 +30,75 @@ export default function Projects() {
 	useEffect(() => {
 		if (items.length === 0) return;
 		const timer = setInterval(() => {
-			setCurrent((prev) => (prev + 1) % items.length);
+			goNext();
 		}, 4000);
 		return () => clearInterval(timer);
 	}, [items]);
 
-	const goPrev = () =>
-		setCurrent((prev) => (prev === 0 ? items.length - 1 : prev - 1));
-	const goNext = () => setCurrent((prev) => (prev + 1) % items.length);
-
-	// Preenche com projetos repetidos ou placeholders se houver menos de 3
-	const getDisplayItems = () => {
-		if (items.length === 0) {
-			return Array(visibleCount).fill({
-				title: "Em breve",
-				description: "Um novo projeto será exibido aqui.",
-				image: "https://placehold.co/600x400/cccccc/FFFFFF/png?text=Em+Breve",
-			});
-		}
-		if (items.length < visibleCount) {
-			const filled = [...items];
-			while (filled.length < visibleCount) {
-				filled.push(...items);
-			}
-			return filled.slice(0, visibleCount);
-		}
-		// Carousel infinito e transição correta
-		const display = [];
-		for (let i = 0; i < visibleCount; i++) {
-			display.push(items[(current + i) % items.length]);
-		}
-		return display;
+	const goPrev = () => {
+		setIsTransitioning(true);
+		setCurrent((prev) => prev - 1);
 	};
 
-	const displayItems = getDisplayItems();
+	const goNext = () => {
+		setIsTransitioning(true);
+		setCurrent((prev) => prev + 1);
+	};
+
+	// duplicamos os itens para ciclo infinito
+	const loopedItems = [...items, ...items];
+
+	// Quando a transição acaba, resetamos o índice para evitar salto
+	const handleTransitionEnd = () => {
+		if (current >= items.length) {
+			setIsTransitioning(false);
+			setCurrent(current % items.length);
+		}
+		if (current < 0) {
+			setIsTransitioning(false);
+			setCurrent(items.length - 1);
+		}
+	};
 
 	return (
 		<section id="projects" className="py-10">
 			<div className="container-xl">
 				<h2 className="text-3xl text-center font-bold text-accent">
-					Projetos Entregues e de Destaque
+					Projetos que Inspiram
 				</h2>
 				<p className="text-slate-600 text-center mt-2">
-					Alguns dos projetos de destaque que realizamos e que ajudaram nossos
-					clientes a crescer.
+					Alguns exemplos de projetos que podemos realizar e ajudar a transformar e impulsionar seus negócios.
 				</p>
+
 				<div className="relative flex flex-col items-center mt-2 w-full h-full">
 					<div className="w-full max-w-[1220px] min-h-[500px] overflow-hidden flex items-center">
 						<div
-							className="flex transition-transform duration-700 ease-in-out"
+							ref={trackRef}
+							className={`flex ${
+								isTransitioning ? "transition-transform duration-[1000ms] ease-in-out" : ""
+							}`}
 							style={{
-								width: `${(displayItems.length * 100) / visibleCount}%`,
-								transform: `translateX(0%)`,
+								width: `${(loopedItems.length * 100) / visibleCount}%`,
+								transform: `translateX(-${
+									(current * (100 / loopedItems.length))
+								}%)`,
 							}}
+							onTransitionEnd={handleTransitionEnd}
 						>
-							{displayItems.map((item, idx) => {
-								const isCenter = idx === 1;
+							{loopedItems.map((item, idx) => {
+								const isCenter = idx % items.length === (current % items.length);
 								return (
 									<div
 										key={item.id || idx}
 										className={`card overflow-hidden mx-6 ${
 											isCenter
 												? "ring-6 ring-accent scale-105 z-10 shadow-xl"
-												: "opacity-80 z-0"
+												: "opacity-50 z-0.1"
 										} cursor-pointer`}
 										style={{
 											width: "360px",
 											minWidth: "360px",
-											transition: "all 0.3s",
+											transition: "all 1s",
 										}}
 										onClick={() => setSelectedProject(item)}
 									>
@@ -105,60 +120,65 @@ export default function Projects() {
 							})}
 						</div>
 					</div>
+
 					<div className="flex gap-6 mt-2">
-						<button
-							onClick={goPrev}
-							className="btn-outline px-4 py-2 rounded-full"
-						>
+						<button onClick={goPrev} className="btn-outline px-4 py-2 rounded-full">
 							◀
 						</button>
-						<button
-							onClick={goNext}
-							className="btn-outline px-4 py-2 rounded-full"
-						>
+						<button onClick={goNext} className="btn-outline px-4 py-2 rounded-full">
 							▶
 						</button>
 					</div>
 				</div>
 			</div>
-			{/* Modal central para detalhes do projeto */}
-			<div
-				className={`fixed inset-0 z-50 flex items-center justify-center transition-opacity duration-300 ${
-					selectedProject
-						? "bg-black/60 opacity-100 pointer-events-auto"
-						: "opacity-0 pointer-events-none"
-				}`}
-				onClick={() => setSelectedProject(null)}
-			>
+			{/* Modal animado */}
+			{selectedProject && (
 				<div
-					className={`bg-white rounded-xl p-8 max-w-2xl w-full relative shadow-2xl transform transition-transform duration-300 ${
-						selectedProject ? "scale-100" : "scale-95"
+					className={`fixed inset-0 z-50 flex items-center justify-center transition-opacity duration-300 ${
+						showModal ? "opacity-100 bg-black/60 pointer-events-auto" : "opacity-0 pointer-events-none"
 					}`}
-					onClick={(e) => e.stopPropagation()}
+					style={{ transitionDelay: `${modalDelay}ms` }}
+					onClick={() => setSelectedProject(null)}
 				>
-					{selectedProject && (
-						<>
-							<button
-								className="absolute top-4 right-4 text-2xl text-accent"
-								onClick={() => setSelectedProject(null)}
-							>
-								&times;
-							</button>
-							<h3 className="text-2xl font-bold text-accent mb-4">
-								{selectedProject.title}
-							</h3>
-							<img
-								src={selectedProject.image}
-								alt={selectedProject.title}
-								className="aspect-video w-full rounded-lg object-cover mb-6"
-							/>
-							<p className="text-slate-700 leading-relaxed">
-								{selectedProject.details || selectedProject.description}
-							</p>
-						</>
-					)}
+					<div
+						className={`bg-white rounded-xl p-8 max-w-2xl w-full relative shadow-2xl transform transition-transform duration-300 ${
+							showModal ? "scale-100" : "scale-95"
+						}`}
+						style={{ transitionDelay: `${modalDelay}ms` }}
+						onClick={(e) => e.stopPropagation()}
+					>
+						<button
+							className="absolute top-4 right-4 text-2xl text-accent"
+							onClick={() => setSelectedProject(null)}
+						>
+							&times;
+						</button>
+						<h3 className="text-2xl font-bold text-accent mb-4">
+							{selectedProject.title}
+						</h3>
+								<img
+									src={selectedProject.image}
+									alt={selectedProject.title}
+									className="aspect-video w-full rounded-lg object-cover mb-6"
+								/>
+								<p className="text-slate-700 leading-relaxed mb-4">
+									{selectedProject.details || selectedProject.description}
+								</p>
+								{Array.isArray(selectedProject.images) && selectedProject.images.length > 0 && (
+									<div className="flex flex-wrap gap-4 justify-center mt-2">
+										{selectedProject.images.map((img, idx) => (
+											<img
+												key={idx}
+												src={img}
+												alt={selectedProject.title + ' extra ' + (idx + 1)}
+												className="w-48 h-32 object-cover rounded-lg shadow"
+											/>
+										))}
+									</div>
+								)}
+					</div>
 				</div>
-			</div>
+			)}
 		</section>
 	);
 }

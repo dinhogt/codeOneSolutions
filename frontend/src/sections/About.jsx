@@ -3,28 +3,25 @@ export default function About() {
     <section id="about" className="py-20 bg-slate-50">
       <div className="container-xl grid md:grid-cols-2 gap-10 items-center">
         <div>
-          <h2 className="text-3xl font-bold text-center text-accent">Sobre a Code One Solutions</h2>
+          <h2 className="text-3xl font-bold text-center text-accent mb-4">Sobre a Code One Solutions</h2>
           <div className="mt-6 space-y-6 font-medium text-justify">
             <p>
-              <strong>Code One Solutions</strong> é uma empresa de tecnologia dedicada a transformar negócios por meio da inovação digital. Nossa missão é promover a transformação digital com soluções tecnológicas que aumentem a eficiência, agilidade e confiabilidade dos processos.
+              A Code One Solutions é uma empresa de tecnologia especializada em impulsionar a transformação digital de negócios e instituições. Nosso propósito é desenvolver soluções inovadoras que aumentem a eficiência, a agilidade e a confiabilidade dos processos, conectando tecnologia de ponta a resultados reais.
             </p>
             <p>
-              À frente da nossa visão está <strong>Janderson Guilherme</strong>, especialista em Engenharia de Software, Dados e Arquitetura de Soluções, com sólida atuação na transformação digital do setor de saúde.
+              Com experiência consolidada em engenharia de software e arquitetura de soluções, atuamos no desenvolvimento de sistemas robustos, escaláveis e centrados no usuário. Nossa atuação abrange desde a criação de plataformas web e mobile, passando por prontuários eletrônicos, portais corporativos e aplicações em nuvem, até a implementação de modelos avançados de analytics e dashboards inteligentes para apoiar a tomada de decisão.
             </p>
             <p>
-              Com anos de experiência liderando equipes de tecnologia, Janderson esteve à frente de projetos que integraram Cloud, Inteligência Artificial e metodologias ágeis para criar soluções digitais seguras, escaláveis e focadas no usuário.
+              Aliamos metodologias ágeis, inteligência artificial e infraestrutura em nuvem para entregar soluções que atendem às necessidades de diferentes setores, com destaque para o setor da saúde. Nossos projetos têm como objetivo transformar a operação de empresas e instituições, promovendo inovação com segurança, escalabilidade e impacto positivo para pessoas.
             </p>
             <p>
-              Entre suas principais contribuições estão o desenvolvimento de prontuários eletrônicos, portais e aplicativos mobile, além da implementação de modelos de analytics e dashboards inteligentes que apoiam a tomada de decisão em ambientes hospitalares.
-            </p>
-            <p>
-              Sua missão é clara: impulsionar negócios e instituições por meio de uma tecnologia robusta, inovadora e humanizada, conectando eficiência operacional com impacto real para pessoas.
+              Na Code One Solutions, acreditamos que a tecnologia deve ser mais do que uma ferramenta: deve ser uma ponte entre eficiência operacional e valor humano.
             </p>
           </div>
         </div>
         <div className="card p-6">
           <div className="card p-0 rounded-2xl bg-slate-100 flex items-center justify-center transition-shadow duration-300 hover:shadow-[0_0_20px_#5e17eb66]">
-            <img src="/assets/images/founder.png" alt="Janderson Guilherme (Founder)" className="w-full h-full object-cover rounded-2xl" />
+            <img src="/assets/images/men_dev.png" alt="Code One Solutions" className="w-full h-full object-cover rounded-2xl" />
           </div>
         </div>
       </div>
