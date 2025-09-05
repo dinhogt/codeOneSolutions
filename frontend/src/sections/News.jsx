@@ -29,6 +29,14 @@ export default function News() {
 
           {loading ? (
             <div className="text-center mt-10">Carregando notícias...</div>
+          ) : newsData.length === 0 ? (
+            <div className="flex justify-center items-center mt-10">
+              <div className="card p-10 flex flex-col items-center max-w-lg mx-auto text-center">
+                <img src="https://placehold.co/400x200?text=Sem+notícias" alt="Sem notícias" className="aspect-video w-full rounded-lg object-cover mb-8 max-h-60" />
+                <div className="font-semibold text-lg text-accent mb-2">Nenhuma notícia disponível</div>
+                <p className="text-slate-500 mb-2">No momento não há notícias para exibir.<br />Tente novamente mais tarde ou acompanhe nossas redes sociais para novidades!</p>
+              </div>
+            </div>
           ) : (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
               {newsData.map((news, idx) => (

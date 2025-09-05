@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 export default function Projects() {
 	const [items, setItems] = useState([]);
 	const [current, setCurrent] = useState(0);
+	const [selectedProject, setSelectedProject] = useState(null);
 	const visibleCount = 3;
 
 	useEffect(() => {
@@ -78,12 +79,13 @@ export default function Projects() {
 											isCenter
 												? "ring-6 ring-accent scale-105 z-10 shadow-xl"
 												: "opacity-80 z-0"
-										}`}
+										} cursor-pointer`}
 										style={{
 											width: "360px",
 											minWidth: "360px",
 											transition: "all 0.3s",
 										}}
+										onClick={() => setSelectedProject(item)}
 									>
 										<img
 											src={item.image}
@@ -117,6 +119,44 @@ export default function Projects() {
 							▶
 						</button>
 					</div>
+				</div>
+			</div>
+			{/* Modal central para detalhes do projeto */}
+			<div
+				className={`fixed inset-0 z-50 flex items-center justify-center transition-opacity duration-300 ${
+					selectedProject
+						? "bg-black/60 opacity-100 pointer-events-auto"
+						: "opacity-0 pointer-events-none"
+				}`}
+				onClick={() => setSelectedProject(null)}
+			>
+				<div
+					className={`bg-white rounded-xl p-8 max-w-2xl w-full relative shadow-2xl transform transition-transform duration-300 ${
+						selectedProject ? "scale-100" : "scale-95"
+					}`}
+					onClick={(e) => e.stopPropagation()}
+				>
+					{selectedProject && (
+						<>
+							<button
+								className="absolute top-4 right-4 text-2xl text-accent"
+								onClick={() => setSelectedProject(null)}
+							>
+								&times;
+							</button>
+							<h3 className="text-2xl font-bold text-accent mb-4">
+								{selectedProject.title}
+							</h3>
+							<img
+								src={selectedProject.image}
+								alt={selectedProject.title}
+								className="aspect-video w-full rounded-lg object-cover mb-6"
+							/>
+							<p className="text-slate-700 leading-relaxed">
+								{selectedProject.details || selectedProject.description}
+							</p>
+						</>
+					)}
 				</div>
 			</div>
 		</section>

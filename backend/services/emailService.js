@@ -3,11 +3,10 @@ dotenv.config();
 
 import nodemailer from 'nodemailer';
 
-
 export const sendContactEmail = async ({ name, email, phone, message }) => {
   const transporter = nodemailer.createTransport({
     host: process.env.SMTP_HOST, // Corretamente lido neste momento
-    port: Number(process.env.SMTP_PORT || 587),
+    port: Number(process.env.SMTP_PORT || 465),
     secure: process.env.SMTP_SECURE === 'true',
     auth: {
       user: process.env.SMTP_USER,
@@ -24,10 +23,10 @@ export const sendContactEmail = async ({ name, email, phone, message }) => {
   `;
 
   const info = await transporter.sendMail({
-    from: process.env.MAIL_FROM,
+    from: process.env.MAIL_FROM, // e-mail verificado no SES
     to: process.env.MAIL_TO || process.env.SMTP_USER,
     subject: `Contato do site - ${name}`,
-    replyTo: email,
+    replyTo: email, // e-mail do usuário para resposta
     html
   });
 
