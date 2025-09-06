@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "title": "Desenvolvimento Web",
+    "description": "Sites, sistemas e aplicações web modernas, rápidas e adaptáveis a qualquer dispositivo.",
+    "details": "Na Code One Solutions, desenvolvemos sites, portais e aplicações web modernas que unem performance, segurança e escalabilidade. Utilizamos tecnologias de ponta como React, Node.js, TailwindCSS e bancos de dados robustos para criar soluções personalizadas e adaptáveis a diferentes necessidades. Nossos projetos são sempre pensados com foco no usuário, garantindo uma navegação fluida, responsiva e de alto impacto visual. Além disso, aplicamos metodologias ágeis para entregar resultados de forma rápida e eficiente, acompanhando as tendências do mercado digital e preparando seu negócio para crescer de forma sustentável.",
+    "image": "/src/assets/images/asian_dev.png"
+  },
+  {
+    "id": 2,
+    "title": "Consultoria em Tecnologia",
+    "description": "Estratégia e inovação para transformar sua empresa digitalmente.",
+    "details": "Oferecemos consultoria em tecnologia com foco em apoiar empresas em sua jornada de transformação digital. Nossa equipe analisa os processos atuais do seu negócio e identifica oportunidades de inovação, propondo soluções práticas e escaláveis. Atuamos em áreas como arquitetura de sistemas, planejamento de infraestrutura em nuvem, definição de estratégias de segurança da informação e implementação de boas práticas de governança de TI. Com experiência em projetos de diferentes segmentos, ajudamos sua empresa a adotar tecnologias que aumentam a eficiência, reduzem custos e melhoram a experiência de clientes e colaboradores. O objetivo é tornar a tecnologia um verdadeiro motor de crescimento e competitividade.",
+    "image": "/src/assets/images/office_dev.png"
+  },
+  {
+    "id": 3,
+    "title": "Automação de Processos",
+    "description": "Reduza custos e ganhe eficiência eliminando tarefas repetitivas.",
+    "details": "A automação de processos é uma das formas mais eficazes de impulsionar a produtividade e reduzir falhas operacionais. Na Code One Solutions, desenvolvemos fluxos automatizados que eliminam tarefas repetitivas e aumentam a eficiência da sua equipe. Nossas soluções incluem bots inteligentes, integração de sistemas corporativos, geração de relatórios automáticos e rotinas de monitoramento. Tudo é projetado sob medida para atender às necessidades do seu negócio, permitindo que colaboradores foquem em atividades estratégicas e de maior valor agregado. Além de reduzir custos, a automação melhora a confiabilidade das informações, acelera processos críticos e garante maior agilidade nas tomadas de decisão.",
+    "image": "/src/assets/images/woman_dev.png"
+  },
+  {
+    "id": 4,
+    "title": "Integração de Sistemas",
+    "description": "Sistemas diferentes trabalhando juntos de forma inteligente e segura.",
+    "details": "Empresas que utilizam múltiplos softwares enfrentam desafios de comunicação entre plataformas, o que pode gerar retrabalho e perda de informações. Nossa solução de integração de sistemas resolve esse problema conectando diferentes aplicações de forma inteligente e segura. Desenvolvemos APIs sob medida, criamos conectores personalizados e utilizamos ferramentas modernas de middleware para garantir que ERPs, CRMs, aplicativos web e sistemas legados funcionem em conjunto. Essa integração resulta em processos otimizados, maior confiabilidade nos dados e mais agilidade no fluxo de informações. Com a Code One Solutions, sua empresa terá um ecossistema tecnológico unificado, permitindo uma operação mais fluida, eficiente e preparada para escalar.",
+    "image": "/src/assets/images/women_dev.png"
+  }
+]
