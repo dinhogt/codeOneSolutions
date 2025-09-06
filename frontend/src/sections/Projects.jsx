@@ -74,31 +74,30 @@ export default function Projects() {
 					<div className="w-full max-w-[1220px] min-h-[500px] overflow-hidden flex items-center">
 						<div
 							ref={trackRef}
-							className={`flex ${
-								isTransitioning ? "transition-transform duration-[1000ms] ease-in-out" : ""
-							}`}
+							className={`flex ${isTransitioning ? "transition-transform duration-[1000ms] ease-in-out" : ""
+								}`}
 							style={{
 								width: `${(loopedItems.length * 100) / visibleCount}%`,
-								transform: `translateX(-${
-									(current * (100 / loopedItems.length))
-								}%)`,
+								transform: `translateX(-${(current * (100 / loopedItems.length))
+									}%)`,
 							}}
 							onTransitionEnd={handleTransitionEnd}
 						>
 							{loopedItems.map((item, idx) => {
-								const isCenter = idx % items.length === (current % items.length);
+								// Calcula índice do card central
+								const centerIndex = (current + Math.floor(visibleCount / 2)) % items.length;
+								const isCenter = idx % items.length === centerIndex;
+
 								return (
 									<div
 										key={item.id || idx}
-										className={`card overflow-hidden mx-6 ${
-											isCenter
-												? "ring-6 ring-accent scale-105 z-10 shadow-xl"
-												: "opacity-50 z-0.1"
-										} cursor-pointer`}
+										className={`card overflow-hidden mx-6 ${isCenter
+												? "ring-0 scale-80 z-10 shadow-2xl"
+												: "opacity-50 scale-95"
+											} cursor-pointer transition-all duration-700`}
 										style={{
 											width: "360px",
 											minWidth: "360px",
-											transition: "all 1s",
 										}}
 										onClick={() => setSelectedProject(item)}
 									>
@@ -118,6 +117,7 @@ export default function Projects() {
 									</div>
 								);
 							})}
+
 						</div>
 					</div>
 
@@ -134,16 +134,14 @@ export default function Projects() {
 			{/* Modal animado */}
 			{selectedProject && (
 				<div
-					className={`fixed inset-0 z-50 flex items-center justify-center transition-opacity duration-300 ${
-						showModal ? "opacity-100 bg-black/60 pointer-events-auto" : "opacity-0 pointer-events-none"
-					}`}
+					className={`fixed inset-0 z-50 flex items-center justify-center transition-opacity duration-300 ${showModal ? "opacity-100 bg-black/60 pointer-events-auto" : "opacity-0 pointer-events-none"
+						}`}
 					style={{ transitionDelay: `${modalDelay}ms` }}
 					onClick={() => setSelectedProject(null)}
 				>
 					<div
-						className={`bg-white rounded-xl p-8 max-w-2xl w-full relative shadow-2xl transform transition-transform duration-300 ${
-							showModal ? "scale-100" : "scale-95"
-						}`}
+						className={`bg-white rounded-xl p-8 max-w-2xl w-full relative shadow-2xl transform transition-transform duration-300 ${showModal ? "scale-100" : "scale-95"
+							}`}
 						style={{ transitionDelay: `${modalDelay}ms` }}
 						onClick={(e) => e.stopPropagation()}
 					>
@@ -156,26 +154,26 @@ export default function Projects() {
 						<h3 className="text-2xl font-bold text-accent mb-4">
 							{selectedProject.title}
 						</h3>
-								<img
-									src={selectedProject.image}
-									alt={selectedProject.title}
-									className="aspect-video w-full rounded-lg object-cover mb-6"
-								/>
-								<p className="text-slate-700 leading-relaxed mb-4">
-									{selectedProject.details || selectedProject.description}
-								</p>
-								{Array.isArray(selectedProject.images) && selectedProject.images.length > 0 && (
-									<div className="flex flex-wrap gap-4 justify-center mt-2">
-										{selectedProject.images.map((img, idx) => (
-											<img
-												key={idx}
-												src={img}
-												alt={selectedProject.title + ' extra ' + (idx + 1)}
-												className="w-48 h-32 object-cover rounded-lg shadow"
-											/>
-										))}
-									</div>
-								)}
+						<img
+							src={selectedProject.image}
+							alt={selectedProject.title}
+							className="aspect-video w-full rounded-lg object-cover mb-6"
+						/>
+						<p className="text-slate-700 leading-relaxed mb-4">
+							{selectedProject.details || selectedProject.description}
+						</p>
+						{Array.isArray(selectedProject.images) && selectedProject.images.length > 0 && (
+							<div className="flex flex-wrap gap-4 justify-center mt-2">
+								{selectedProject.images.map((img, idx) => (
+									<img
+										key={idx}
+										src={img}
+										alt={selectedProject.title + ' extra ' + (idx + 1)}
+										className="w-48 h-32 object-cover rounded-lg shadow"
+									/>
+								))}
+							</div>
+						)}
 					</div>
 				</div>
 			)}
