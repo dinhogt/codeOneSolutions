@@ -21,7 +21,7 @@ export default function Projects() {
 	const trackRef = useRef(null);
 
 	useEffect(() => {
-		fetch("/public/data/projects.json")
+		fetch("/src/data/projects.json")
 			.then((res) => res.json())
 			.then((data) => setItems(data))
 			.catch(() => setItems([]));

@@ -16,7 +16,7 @@ export default function Begin() {
         </div>
         <div className="card p-6">
           <div className="aspect-video rounded-xl bg-slate-100 flex items-center justify-center text-slate-400">
-            <img src="../../public/assets/images/indian_dev.png" alt="Code One Solutions" className="w-full h-full object-cover" />
+            <img src="/src/assets/images/indian_dev.png" alt="Code One Solutions" className="w-full h-full object-cover" />
           </div>
         </div>
       </div>

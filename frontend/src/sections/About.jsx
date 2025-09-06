@@ -21,7 +21,7 @@ export default function About() {
         </div>
         <div className="card p-6">
           <div className="card p-0 rounded-2xl bg-slate-100 flex items-center justify-center transition-shadow duration-300 hover:shadow-[0_0_20px_#5e17eb66]">
-            <img src="/assets/images/men_dev.png" alt="Code One Solutions" className="w-full h-full object-cover rounded-2xl" />
+            <img src="/src/assets/images/men_dev.png" alt="Code One Solutions" className="w-full h-full object-cover rounded-2xl" />
           </div>
         </div>
       </div>
